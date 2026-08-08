@@ -1,30 +1,20 @@
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-test("renders MovieDiscover heading", () => {
+test('renders MovieDiscover heading', () => {
   render(<App />);
-
   const heading = screen.getByText(/MovieDiscover/i);
-
   expect(heading).toBeInTheDocument();
 });
 
-test("renders search button", () => {
+test('renders search input', () => {
   render(<App />);
-
-  const button = screen.getByRole("button", {
-    name: /search/i,
-  });
-
-  expect(button).toBeInTheDocument();
+  const searchInput = screen.getByPlaceholderText(/Search movies/i);
+  expect(searchInput).toBeInTheDocument();
 });
 
-test("renders favourites button", () => {
+test('renders favourites button', () => {
   render(<App />);
-
-  const button = screen.getByRole("button", {
-    name: /favourites/i,
-  });
-
-  expect(button).toBeInTheDocument();
+  const favButton = screen.getByText(/Favourites/i);
+  expect(favButton).toBeInTheDocument();
 });
